@@ -4,15 +4,19 @@ require 'pry-byebug'
 
 def stock_picker(stock_prices)
   profits = []
-  prices_in_pairs = []
+  pairs_of_prices = []
 
   stock_prices.each_with_index do |buy_price, index|
     stock_prices[(index + 1)..stock_prices.length].each do |sell_price|
       profits << sell_price - buy_price
-      prices_in_pairs << [buy_price, sell_price]
+      pairs_of_prices << [buy_price, sell_price]
     end
   end
-  prices_in_pairs
+  get_the_days(pairs_of_prices, profits, stock_prices)
+end
+
+def get_the_days(pairs_of_prices, profits, stock_prices)
+  pairs_of_prices
     .select { |pair| pair[1] - pair[0] == profits.max }
     .flatten
     .map { |num| stock_prices.index(num) }
