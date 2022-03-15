@@ -6,10 +6,10 @@ def stock_picker(stock_prices)
   profits = []
   prices_in_pairs = []
 
-  stock_prices.each_with_index do |first_price, index|
-    stock_prices[(index + 1)..stock_prices.length].each do |second_price|
-      profits << second_price - first_price
-      prices_in_pairs << [first_price, second_price]
+  stock_prices.each_with_index do |buy_price, index|
+    stock_prices[(index + 1)..stock_prices.length].each do |sell_price|
+      profits << sell_price - buy_price
+      prices_in_pairs << [buy_price, sell_price]
     end
   end
   prices_in_pairs
