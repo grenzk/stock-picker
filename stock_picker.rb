@@ -12,10 +12,10 @@ def stock_picker(stock_prices)
       pairs_of_prices << [buy_price, sell_price]
     end
   end
-  get_the_days(pairs_of_prices, profits, stock_prices)
+  get_pair_of_days(pairs_of_prices, profits, stock_prices)
 end
 
-def get_the_days(pairs_of_prices, profits, stock_prices)
+def get_pair_of_days(pairs_of_prices, profits, stock_prices)
   pairs_of_prices
     .select { |pair| pair[1] - pair[0] == profits.max }
     .flatten
