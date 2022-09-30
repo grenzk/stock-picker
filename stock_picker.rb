@@ -6,8 +6,8 @@ def stock_picker(stock_prices)
   profits = []
   pairs_of_prices = []
 
-  stock_prices.each_with_index do |buy_price, index|
-    stock_prices[(index + 1)..].each do |sell_price|
+  stock_prices.each_with_index do |buy_price, idx|
+    stock_prices[(idx + 1)..].each do |sell_price|
       profits << sell_price - buy_price
       pairs_of_prices << [buy_price, sell_price]
     end
