@@ -1,3 +1,13 @@
 # Ignore files...
-.vscode
-.DS_Store
+/.vscode
+/node_modules
+/.DS_Store
+
+# Ignore some yarn configs
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
